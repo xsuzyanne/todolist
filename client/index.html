@@ -20,25 +20,26 @@
 <!--Campo de Entrada-->
     <form class="row">
         <input id="formulario" type="text" class="form-control" placeholder="O que faremos hoje?">
-        <button id=btn-add class="btn btn-outline-success">Adicionar</button>
+        <span id="btn-add" onclick="inserirTarefa()" class="btn btn-outline-success">Adicionar</span>
     </form>
 
     <br />
 
 <!--Lista de Tarefas-->
-    <div id="todo-list">
+    <div>
+        <ul id="todo-list"></ul>
 </div>
 
 <!-- Número de atividades -->
 <div class="footer">
-Você tem 3 atividades para concluir
-    <span type="span" class="btn btn-danger">Finalizar</span>
+Você tem <span class="numeroPendente"></span>  atividades para concluir
+<button type="span" class="btn btn-danger">Finalizar</button>
 </div>
 </div>
 
 <!-- Javascript -->
     <script src="src/todo.js"></script>
-<!-- Bootstrap Bundle with Popper -->
+    
 </div> </div>
 </body>
 </html>

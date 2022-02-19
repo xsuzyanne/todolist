@@ -1,11 +1,14 @@
-'use strict';
-
+//Reaproveitamento - Aplicação Exemplo
+//
+// Inserir tarefas
+// Remover tarefas
+// Listar tarefas
+// Atualizar a tarefa
+//
 let banco = [
     {'tarefa': 'Estudar'},
     {'tarefa': 'Metropole'},
-    {'tarefa': 'testar'}
 ]
-
 
 const criarItem = (tarefa, indice) => {
     const item = document.createElement('li');
@@ -13,11 +16,10 @@ const criarItem = (tarefa, indice) => {
     item.innerHTML = `
     <input class="form-check-input" type="checkbox" data-indice=${indice}>
     <label>${tarefa}</label>
-    <button class="fas fa-trash" data-indice=${indice}></button>
+    <button class="fas fa-trash" onclick=removerItem(${indice})></button>
     `
     document.getElementById('todo-list').appendChild(item);
 }
-
 
 const limparTarefas = () => {
     const todoList = document.getElementById("todo-list");
@@ -31,34 +33,29 @@ const atualizarTela = () => {
     banco.forEach((item, indice) => criarItem(item.tarefa, indice));
 };
 
-const inserirTarefa = (evento) => {
-    const tecla = evento.key;
-    const texto = evento.target.value;
-       if(tecla == 'Enter'){
-            banco.push({'tarefa': texto});
-            atualizarTela();
-            evento.target.value = '';
-        }
-}
-
 const removerItem = (indice) => {
     banco.splice (indice, 1);
     atualizarTela();
 }
 
-const clickItem = (evento) => {
-    const elemento = evento.target;
-    if(elemento.type === 'button'){
-        console.log(elemento);
-        const indice = elemento.dataset.indice;
-        removerItem(indice);
-    } else if (elemento.type === 'checkbox') {
-        const indice = elemento.dataset.indice;
-    }
+const inputBox = document.querySelector("#formulario");
+
+//Inserir Tarefa
+const inserirTarefa = () => {
+    const valor = inputBox.value;
+    const texto = valor;
+           banco.push({'tarefa': texto});
+          atualizarTela();
+
+ //Número de atividades pendentes
+const numeroPendente = document.querySelector(".numeroPendente");
+numeroPendente.textContent = banco.length;
 
 }
 
-document.getElementById('formulario').addEventListener('click', inserirTarefa);
-document.getElementById('todo-list').addEventListener('click', clickItem);
+document.getElementById('btn-add').addEventListener('onclick', inserirTarefa);
+
+const numeroPendente = document.querySelector(".numeroPendente");
+numeroPendente.textContent = banco.length;
 
 atualizarTela();
