@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(to bottom, rgb(164, 248, 168), rgb(250, 147, 63) );
+}
+.app-principal{
+    margin: 120px auto;
+    max-width: 400px;
+    width: 100%;
+    background: white;
+    border-radius: 5px;
+    padding: 25px;
+}
+
+
+.app-principal header{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.app-principal #todo-list{
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+#todo-list li{
+    list-style: none;
+    height: 40px;
+    line-height: 45px;
+    position: relative;
+    background: rgb(247, 245, 245);
+    border-radius: 3px;
+    margin-bottom: 8px;
+    padding: 0 15px;
+    overflow: hidden;
+}
+
+#todo-list button{
+    position: absolute;
+    right: 0px;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    text-align:center;
+    background: rgb(243, 125, 125);
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+}
+
+.app-principal .footer{
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: space-between;
+}
