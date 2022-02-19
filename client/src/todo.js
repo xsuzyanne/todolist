@@ -33,9 +33,14 @@ const atualizarTela = () => {
     banco.forEach((item, indice) => criarItem(item.tarefa, indice));
 };
 
+
 const removerItem = (indice) => {
     banco.splice (indice, 1);
     atualizarTela();
+
+ //Número de atividades pendentes
+ const numeroPendente = document.querySelector(".numeroPendente");
+ numeroPendente.textContent = banco.length;
 }
 
 const inputBox = document.querySelector("#formulario");
